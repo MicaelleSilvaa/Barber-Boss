@@ -71,70 +71,62 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/about-header.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center">
 
-        <h2>Login</h2>
+        <h2>Atendimento</h2>
         <ol>
-          <li><a href="contact.html">Cadastre-se</a></li>
-          <li>Login</li>
-        </ol>
+          <li><a href="agendamento.html">Agendamento</a></li>
+          <li><a href="planos.html">Planos</a></li>
+          <li><a href="visagismo.html">Visagismo</a></li>
+        </ol>  
 
       </div>
-    </div><!-- End Breadcrumbs -->
+    </div>
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container position-relative" data-aos="fade-up">
-
-        <div class="row gy-4 d-flex justify-content-end">
-
-          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="info-item d-flex">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h4>Local:</h4>
-                <p>Rua Simpere, Caçote - Recife/PE</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h4>Email:</h4>
-                <p>barberboss@recife.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex">
-              <i class="bi bi-phone flex-shrink-0"></i>
-              <div>
-                <h4>Contato:</h4>
-                <p>81 99999-0000</p>
-              </div>
-            </div><!-- End Info Item -->
-
+    <section id="planos" class="planos">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h1>Planos de Barbeiro</h1>
           </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-
-            <form action="forms/login.php" method="post" role="form" class="php-email-form">
-                <div class="form-group mt-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                </div>
-                <div class="form-group mt-3">
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Senha" required minlength="8">
-                </div>
-                
-                <div class="text-center">
-                        <button type="submit"><a href="index-acesso.html">Entrar</a></button>
-                </div>
-            </form>
-        
-            <p class="text-center mt-3">Ainda não tem cadastro? <a href="contact.html">Cadastre-se aqui</a>.</p>
+  
+          <div class="row justify-content-center">
+  
+            <div class="col-lg-6">
+              <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Plano Mensal</h3>
+                <p>Corte de cabelo até 3 vezes por mês</p>
+                <span>R$ 60,00 / mês</span>
+                <form>
+                  <input type="radio" id="planoMensal" name="plano" value="mensal">
+                  <label for="planoMensal">Escolher este plano</label>
+                </form>
+              </div>
+            </div>
+  
+            <div class="col-lg-6">
+              <div class="box" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Plano Semestral</h3>
+                <p>Corte de cabelo até 4 vezes por mês durante o semestre</p>
+                <span>R$ 300,00 / semestre</span>
+                <form>
+                  <input type="radio" id="planoSemestral" name="plano" value="semestral">
+                  <label for="planoSemestral">Escolher este plano</label>
+                </form>
+              </div>
+            </div>
+  
           </div>
+  
+          <div class="text-center mt-4">
+            <button type="button" class="btn btn-primary">Finalizar Escolha de Plano</button>
+          </div>
+  
+        </div>
+      </section>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
+  
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
