@@ -2176,3 +2176,20 @@ section {
   font-size: 13px;
   color: var(--color-secondary);
 }
+
+.agendamento {
+  color: white;
+}
+
+.sobre {
+  color: white;
+}
+
+.servicos {
+  color: white;
+}
+
+.controle {
+  color: white;
+  font-weight: bold;
+}
