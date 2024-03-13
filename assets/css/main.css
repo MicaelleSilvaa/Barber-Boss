@@ -1334,7 +1334,6 @@ section {
 # Contact Section
 --------------------------------------------------------------*/
 .contact {
-  background: url("../img/contact-bg.png") left top no-repeat;
   background-size: contain;
   position: relative;
 }
