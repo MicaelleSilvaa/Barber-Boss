@@ -8,6 +8,7 @@
   <title>Barber Boss</title>
   <meta content="" name="barberboss">
   <meta content="" name="barberboss">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +28,9 @@
 
   
   <link rel="icon" href="./favicon/android-chrome-512x512.png" type="image/x-icon">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="index" href="./index.js">
+  <link rel="sw" href="./service-worker.js">
 
   <!-- =======================================================
   * Template Name: Nova
@@ -219,6 +223,19 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+          console.log('Service Worker registrado: ', registration.scope);
+        }, function(err) {
+          console.log('Falha ao registrar o Service Worker: ', err);
+        });
+      });
+    }
+  </script>
+  
 
 </body>
 
