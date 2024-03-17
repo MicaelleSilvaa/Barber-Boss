@@ -13,8 +13,6 @@ window.addEventListener("DOMContentLoaded", startVideoFromCamera)
 const video = document.getElementById('video');
 const captureBtn = document.getElementById('capture-btn');
 
-let capturedImageDataUrl;
-
 captureBtn.addEventListener('click', function () {
     const canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
@@ -22,7 +20,9 @@ captureBtn.addEventListener('click', function () {
     const ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    capturedImageDataUrl = canvas.toDataURL('image/png');
+    // Convertendo a imagem para base64
+    const capturedImageDataUrl = canvas.toDataURL('image/jpeg', 0.5); // Altere a qualidade conforme necessário
 
+    // Redirecionar para a página de contato com a imagem em base64 na URL
     window.location.href = 'contact.html?image=' + encodeURIComponent(capturedImageDataUrl);
 });
