@@ -79,7 +79,7 @@
 
         <div class="row gy-4 d-flex justify-content-end">
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-            <h4>Insira seus dados</h4>
+            <h5>Insira seus dados</h5>
             <form id="appointment-form" action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
@@ -97,11 +97,17 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <h4>Escolha ou tire uma foto</h4>
-                    <input type="file" id="photo" name="photo" accept="image/*" class="form-control mb-6" style="display: inline-block;" required>
+                    <h5>Escolha ou tire uma foto</h5>
+                    <input type="file" id="photo" name="photo" accept="image/*" class="form-control mb-6" style="display: inline-block;">
+                    <a href="./takePhoto.html" class="btn btn-primary">Tirar foto</a>
                   </div>
+                  
+                  <div id="captured-photo-container" style="display: none;">
+                    <img id="captured-photo" src="" alt="Foto capturada" width="200" height="150">
+                  </div>
+
                   <div class="col-md-6 form-group"> <!-- Adicionada a classe col-md-6 -->
-                    <h4>Escolha seu horário</h4> <!-- Adicionei classe de margem inferior -->
+                    <h5>Escolha seu atendimento</h5> <!-- Adicionei classe de margem inferior -->
                     <!-- Aqui você pode adicionar um calendário -->
                     <input type="date" id="date-picker" class="form-control mb-6" required>
                     <select name="time" id="time" class="form-control" required>
@@ -175,10 +181,28 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/myJs/submitForm.js"></script>
 
+  <video id="video" autoplay></video>
+
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/myJs/formPersist.js"></script>
 
+  <script>
 
+    document.addEventListener('DOMContentLoaded', function() {
+      // Recupera a URL da imagem da consulta da URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const capturedImage = urlParams.get('image');
+  
+      // Verifica se uma imagem foi capturada e exibe-a
+      if (capturedImage) {
+        const capturedPhoto = document.getElementById('captured-photo');
+        capturedPhoto.src = capturedImage;
+        document.getElementById('captured-photo-container').style.display = 'block'; // Exibe o contêiner da foto capturada
+    }
+  });
+  
+</script>
 </body>
 
 </html>

@@ -2176,6 +2176,8 @@ section {
   color: var(--color-secondary);
 }
 
+/*Meu Css*/
+
 .agendamento {
   color: white;
 }
@@ -2191,4 +2193,17 @@ section {
 .controle {
   color: white;
   font-weight: bold;
+}
+
+#captured-photo {
+  width: 200px;
+  height: 300px;
+}
+
+#video {
+
+  border-radius: 10px;
+  object-fit: cover;
+  margin: auto;
+  display: block;
 }
