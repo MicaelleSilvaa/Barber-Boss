@@ -1,6 +1,6 @@
 const CACHE_VERSION = 'v1';
 const CACHE_FILES = [
-    '/',
+    '/assets/img/why-us-bg.jpg',
     '/index.html',
     '/assets/css/main.css',
     '/index.js',
