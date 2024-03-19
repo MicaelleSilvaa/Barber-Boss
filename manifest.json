@@ -4,6 +4,7 @@
     "description": "Agendamento de serviços de barbearia",
     "start_url": "/index.html",
     "display": "standalone",
+    "offline": "true",
     "background_color": "#ffffff",
     "theme_color": "#000000",
     "icons": [
