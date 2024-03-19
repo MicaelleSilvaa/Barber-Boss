@@ -1,5 +1,13 @@
 const CACHE_VERSION = 'v1';
 const CACHE_FILES = [
+    '/assets/img/why-us-bg.jpg',
+    '/assets/img/hero-bg.jpg',
+    '/assets/img/about-header.jpg',
+    '/assets/img/about.jpeg',
+    '/assets/img/cards-1.jpg',
+    '/assets/img/cards-2.jpg',
+    '/assets/img/cards-4.jpg',
+    '/assets/vendor/bootstrap/css',
     '/index.html',
     '/assets/css/main.css',
     '/index.js',
