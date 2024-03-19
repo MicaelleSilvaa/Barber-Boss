@@ -3,7 +3,8 @@ const CACHE_FILES = [
     '/index.html',
     '/assets/css/main.css',
     '/index.js',
-    '/assets/img/144.png'
+    '/assets/img/144.png',
+    './'
 ];
 
 self.addEventListener('install', function (event) {
