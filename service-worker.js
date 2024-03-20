@@ -1,6 +1,7 @@
 const CACHE_VERSION = 'v1';
 const CACHE_FILES = [
     '/index.html',
+    '/contact.html',
     '/assets/css/main.css',
     '/index.js',
     '/assets/img/144.png',
