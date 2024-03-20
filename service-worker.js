@@ -8,7 +8,7 @@ const CACHE_FILES = [
     '/assets/img/why-us-bg.jpg',
     '/assets/img/hero-bg.jpg',
     '/assets/vendor/swiper/swiper-bundle.min.js',
-    '/assets/vendor//swiper/swiper-bundle.min.css',
+    '/assets/vendor/swiper/swiper-bundle.min.css',
     './'
 ];
 
