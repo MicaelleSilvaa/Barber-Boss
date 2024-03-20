@@ -3,14 +3,13 @@ const CACHE_FILES = [
     '/index.html',
     '/contact.html',
     '/assets/css/main.css',
-    '/assets/vendor/bootstrap/css/bootstrap.css',
+    '/assets/vendor/bootstrap-icons/bootstrap.icons.scss',
     '/index.js',
     '/assets/img/144.png',
     '/assets/img/why-us-bg.jpg',
     '/assets/img/hero-bg.jpg',
     '/assets/vendor/swiper/swiper-bundle.min.js',
     '/assets/vendor/swiper/swiper-bundle.min.css',
-    './'
 ];
 
 self.addEventListener('install', function (event) {
