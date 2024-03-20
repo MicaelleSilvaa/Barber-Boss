@@ -1,49 +1,54 @@
-const CACHE_VERSION = 'v1';
-const CACHE_FILES = [
-    '/index.html',
-    '/assets/css/main.css',
-    '/index.js',
-    '/assets/img/144.png',
-    '/assets/img/why-us-bg.jpg',
-    '/assets/img/hero-bg.jpg',
-    'assets/vendor/bootstrap/css/bootstrap.min.css',
-    'assets/vendor/bootstrap-icons/bootstrap-icons.css',
-    'assets/vendor/aos/aos.css',
-    'assets/vendor/glightbox/css/glightbox.min.css',
-    'assets/vendor/swiper/swiper-bundle.min.css',
-    'assets/vendor/remixicon/remixicon.css',
-    './'
-];
+// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
 
-self.addEventListener('install', function (event) {
+const CACHE = "pwabuilder-offline-page";
+
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+const offlineFallbackPage = "ToDo-replace-this-name.html";
+
+self.addEventListener("message", (event) => {
+    if (event.data && event.data.type === "SKIP_WAITING") {
+        self.skipWaiting();
+    }
+});
+
+self.addEventListener('install', async (event) => {
     event.waitUntil(
-        caches.open(CACHE_VERSION).then(function (cache) {
-            return cache.addAll(CACHE_FILES);
-        })
+        caches.open(CACHE)
+            .then((cache) => cache.add(offlineFallbackPage))
     );
 });
 
-self.addEventListener('activate', function (event) {
-    event.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.map(function (cacheName) {
-                    if (cacheName !== CACHE_VERSION) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        })
-    );
-});
+if (workbox.navigationPreload.isSupported()) {
+    workbox.navigationPreload.enable();
+}
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request).then(function (response) {
-            if (response) {
-                return response;
+workbox.routing.registerRoute(
+    new RegExp('/*'),
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: CACHE
+    })
+);
+
+self.addEventListener('fetch', (event) => {
+    if (event.request.mode === 'navigate') {
+        event.respondWith((async () => {
+            try {
+                const preloadResp = await event.preloadResponse;
+
+                if (preloadResp) {
+                    return preloadResp;
+                }
+
+                const networkResp = await fetch(event.request);
+                return networkResp;
+            } catch (error) {
+
+                const cache = await caches.open(CACHE);
+                const cachedResp = await cache.match(offlineFallbackPage);
+                return cachedResp;
             }
-            return fetch(event.request);
-        })
-    );
+        })());
+    }
 });
