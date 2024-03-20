@@ -3,6 +3,7 @@ const CACHE_FILES = [
     '/index.html',
     '/contact.html',
     '/assets/css/main.css',
+    '/assets/vendor/bootstrap/css/bootstrap.css',
     '/index.js',
     '/assets/img/144.png',
     '/assets/img/why-us-bg.jpg',
