@@ -6,6 +6,12 @@ const CACHE_FILES = [
     '/assets/img/144.png',
     '/assets/img/why-us-bg.jpg',
     '/assets/img/hero-bg.jpg',
+    'assets/vendor/bootstrap/css/bootstrap.min.css',
+    'assets/vendor/bootstrap-icons/bootstrap-icons.css',
+    'assets/vendor/aos/aos.css',
+    'assets/vendor/glightbox/css/glightbox.min.css',
+    'assets/vendor/swiper/swiper-bundle.min.css',
+    'assets/vendor/remixicon/remixicon.css',
     './'
 ];
 
