@@ -4,6 +4,7 @@ const CACHE_FILES = [
     '/assets/css/main.css',
     '/index.js',
     '/assets/img/144.png',
+    '/assets/img/why-us-bg.jpg',
     './'
 ];
 

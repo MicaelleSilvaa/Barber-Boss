@@ -27,16 +27,5 @@
         }
     ],
     "splash_pages": null,
-    "orientation": "portrait",
-    "related_applications": [],
-    "prefer_related_applications": false,
-    "scope": "/",
-    "css": [
-        "main.css"
-    ],
-    "js": [
-        "main.js",
-        "formPersist.js",
-        "doc.js"
-    ]
+    "orientation": "portrait"
 }
