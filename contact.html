@@ -214,48 +214,6 @@
 
     </script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('submit-btn').addEventListener('click', function (event) {
-          event.preventDefault(); // Previne o envio do formulário
-
-          // Recupera os valores dos campos do formulário
-          var firstName = document.getElementById('first_name').value;
-          var lastName = document.getElementById('last_name').value;
-          var email = document.getElementById('email').value;
-          var haircutDescription = document.getElementById('haircut-description').value;
-          var selectedDate = document.getElementById('date-picker').value;
-          var selectedTime = document.getElementById('time').value;
-
-          // Recupera a imagem capturada, se houver
-          var capturedPhoto = document.getElementById('captured-photo');
-          var photoUrl = capturedPhoto.src;
-
-          // Constrói a mensagem do WhatsApp com as informações do agendamento e a foto
-          var message = "Olá! Gostaria de agendar um corte de cabelo com as seguintes informações:\n\n";
-          message += "Nome: " + firstName + " " + lastName + "\n";
-          message += "Email: " + email + "\n";
-          message += "Descrição do serviço: " + haircutDescription + "\n";
-          message += "Data: " + selectedDate + "\n";
-          message += "Horário: " + selectedTime + "\n";
-
-          // Se houver uma foto, adiciona o link da foto à mensagem
-          if (photoUrl) {
-            message += "Foto do cabelo: " + photoUrl + "\n";
-          }
-
-          // Codifica a mensagem para que possa ser usada em uma URL
-          var encodedMessage = encodeURIComponent(message);
-
-          // Constrói o link do WhatsApp com a mensagem preenchida
-          var whatsappLink = "https://api.whatsapp.com/send?phone=55081997056165&text=" + encodedMessage;
-
-          // Redireciona o usuário para o link do WhatsApp
-          window.location.href = whatsappLink;
-        });
-      });
-    </script>
-
 </body>
 
 </html>
