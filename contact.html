@@ -94,6 +94,9 @@
                 <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
               </div>
               <div class="form-group mt-3">
+                <input type="text" class="form-control" name="contato" id="contato" placeholder="Celular" required>
+              </div>
+              <div class="form-group mt-3">
                 <textarea name="message" id="haircut-description" class="form-control mb-6" rows="3"
                   placeholder="Descrição do serviço"></textarea>
               </div>
@@ -216,6 +219,7 @@
     const firstName = document.getElementById('first_name').value;
     const lastName = document.getElementById('last_name').value;
     const email = document.getElementById('email').value;
+    const contato = document.getElementById('contato').value;
     const serviceDescription = document.getElementById('haircut-description').value;
     const selectedDate = document.getElementById('date-picker').value;
     const selectedTime = document.getElementById('time').value;
@@ -225,6 +229,7 @@
     messageParts.push(`Olá! Gostaria de agendar um serviço.`);
     messageParts.push(`Nome: ${firstName} ${lastName}`);
     messageParts.push(`Email: ${email}`);
+    messageParts.push(`Contato: ${contato}`);
     messageParts.push(`Descrição do serviço: ${serviceDescription}`);
     messageParts.push(`Data: ${selectedDate}`);
     messageParts.push(`Horário: ${selectedTime}`);
