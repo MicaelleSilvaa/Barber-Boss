@@ -30,14 +30,6 @@
   <link rel="icon" href="./favicon/android-chrome-512x512.png" type="image/x-icon">
   <link rel="manifest" href="./manifest.json">
 
-
-  <!-- =======================================================
-  * Template Name: Nova
-  * Updated: Jan 29 2024 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="page-contact">
@@ -58,8 +50,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="information.html">Informações</a></li>
           <li><a href="about.html">Sobre</a></li>
-          <li><a href="services.html">Serviços</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -86,21 +79,22 @@
         <div class="row gy-4 d-flex justify-content-end">
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
             <h5>Insira seus dados</h5>
-            <form id="appointment-form" action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="" method="post" id="appointment-form" role="form">
+              <input type="hidden" name="accessKey" value="09af8b40-5695-489f-8479-c2a31cb6d82d">
+
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Nome" required>
+                  <input type="text" name="name" class="form-control" id="first_name" placeholder="Nome" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Sobrenome"
-                    required>
+                  <input type="text" name="name" class="form-control" id="last_name" placeholder="Sobrenome" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
               </div>
               <div class="form-group mt-3">
-                <textarea id="haircut-description" class="form-control mb-6" rows="3"
+                <textarea name="message" id="haircut-description" class="form-control mb-6" rows="3"
                   placeholder="Descrição do serviço"></textarea>
               </div>
               <div class="row">
@@ -134,6 +128,7 @@
                   </select>
                 </div>
               </div>
+              <input type="hidden" name="_subject" value="Novo contato!">
               <div class="form-group mt-4"> <!-- Ajustei a margem superior -->
                 <button id="submit-btn" type="submit" class="btn btn-primary">Agendar</button>
 
@@ -200,19 +195,80 @@
     <script>
 
       document.addEventListener('DOMContentLoaded', function () {
-        // Recupera a URL da imagem da consulta da URL
         const urlParams = new URLSearchParams(window.location.search);
         const capturedImage = urlParams.get('image');
 
-        // Verifica se uma imagem foi capturada e exibe-a
         if (capturedImage) {
           const capturedPhoto = document.getElementById('captured-photo');
           capturedPhoto.src = capturedImage;
-          document.getElementById('captured-photo-container').style.display = 'block'; // Exibe o contêiner da foto capturada
+          document.getElementById('captured-photo-container').style.display = 'block';
         }
       });
 
+      //////////////////
+
+      document.addEventListener('DOMContentLoaded', function () {
+  const submitButton = document.getElementById('submit-btn');
+
+  submitButton.addEventListener('click', function (event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
+    const firstName = document.getElementById('first_name').value;
+    const lastName = document.getElementById('last_name').value;
+    const email = document.getElementById('email').value;
+    const serviceDescription = document.getElementById('haircut-description').value;
+    const selectedDate = document.getElementById('date-picker').value;
+    const selectedTime = document.getElementById('time').value;
+
+    const messageParts = [];
+
+    messageParts.push(`Olá! Gostaria de agendar um serviço.`);
+    messageParts.push(`Nome: ${firstName} ${lastName}`);
+    messageParts.push(`Email: ${email}`);
+    messageParts.push(`Descrição do serviço: ${serviceDescription}`);
+    messageParts.push(`Data: ${selectedDate}`);
+    messageParts.push(`Horário: ${selectedTime}`);
+
+    // Verifica se uma foto foi anexada
+    const fileInput = document.getElementById('photo');
+    if (fileInput && fileInput.files.length > 0) {
+      const photo = fileInput.files[0]; // A primeira imagem anexada
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const photoBase64 = event.target.result; // Codifica a imagem em base64
+        messageParts.push(`Foto:`);
+        messageParts.push(photoBase64); // Inclui a imagem na mensagem
+
+        // Monta a mensagem com quebras de linha
+        const message = messageParts.join('\n');
+
+        // Número de telefone do WhatsApp
+        const phoneNumber = '55081997056165';
+
+        // URL de envio do WhatsApp com a mensagem
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+        // Abre a URL no WhatsApp
+        window.open(whatsappUrl, '_blank');
+      };
+
+      reader.readAsDataURL(photo); // Lê a imagem como base64
+    } else {
+      // Se nenhuma foto foi anexada, envia a mensagem sem a foto
+      const message = messageParts.join('\n');
+      const phoneNumber = '55081997056165';
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  });
+});
+
+
+
     </script>
+
+
 
 </body>
 
