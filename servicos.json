@@ -1,0 +1,40 @@
+{
+    "servicos": [
+        {
+            "nome": "Corte Tradicional",
+            "descricao": "Um corte clássico que nunca sai de moda.",
+            "tempo_medio": "30 minutos",
+            "valor": 20.00
+        },
+        {
+            "nome": "Barba Completa",
+            "descricao": "Cuidados completos para a barba, incluindo corte e modelagem.",
+            "tempo_medio": "45 minutos",
+            "valor": 15.00
+        },
+        {
+            "nome": "Corte Moderno",
+            "descricao": "Um corte atualizado de acordo com as últimas tendências.",
+            "tempo_medio": "40 minutos",
+            "valor": 30.00
+        },
+        {
+            "nome": "Pacote Especial",
+            "descricao": "Corte tradicional + barba completa com desconto especial.",
+            "tempo_medio": "1 hora e 15 minutos",
+            "valor": 40.00
+        },
+        {
+            "nome": "Design de Sobrancelhas",
+            "descricao": "Modelagem profissional das sobrancelhas.",
+            "tempo_medio": "20 minutos",
+            "valor": 15.00
+        },
+        {
+            "nome": "Coloração Capilar",
+            "descricao": "Coloração personalizada para cabelos.",
+            "tempo_medio": "1 hora",
+            "valor": 50.00
+        }
+    ]
+}
