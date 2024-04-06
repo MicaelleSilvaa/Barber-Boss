@@ -211,63 +211,43 @@
       //////////////////
 
       document.addEventListener('DOMContentLoaded', function () {
-  const submitButton = document.getElementById('submit-btn');
+        const submitButton = document.getElementById('submit-btn');
 
-  submitButton.addEventListener('click', function (event) {
-    event.preventDefault(); // Evita o envio padrão do formulário
+        submitButton.addEventListener('click', function (event) {
+          event.preventDefault(); // Evita o envio padrão do formulário
 
-    const firstName = document.getElementById('first_name').value;
-    const lastName = document.getElementById('last_name').value;
-    const email = document.getElementById('email').value;
-    const contato = document.getElementById('contato').value;
-    const serviceDescription = document.getElementById('haircut-description').value;
-    const selectedDate = document.getElementById('date-picker').value;
-    const selectedTime = document.getElementById('time').value;
+          const firstName = document.getElementById('first_name').value;
+          const lastName = document.getElementById('last_name').value;
+          const email = document.getElementById('email').value;
+          const contato = document.getElementById('contato').value;
+          const serviceDescription = document.getElementById('haircut-description').value;
+          const selectedDate = document.getElementById('date-picker').value;
+          const selectedTime = document.getElementById('time').value;
 
-    const messageParts = [];
+          const messageParts = [];
 
-    messageParts.push(`Olá! Gostaria de agendar um serviço.`);
-    messageParts.push(`Nome: ${firstName} ${lastName}`);
-    messageParts.push(`Email: ${email}`);
-    messageParts.push(`Contato: ${contato}`);
-    messageParts.push(`Descrição do serviço: ${serviceDescription}`);
-    messageParts.push(`Data: ${selectedDate}`);
-    messageParts.push(`Horário: ${selectedTime}`);
+          messageParts.push(`Olá! Gostaria de agendar um serviço.`);
+          messageParts.push(`Nome: ${firstName} ${lastName}`);
+          messageParts.push(`Email: ${email}`);
+          messageParts.push(`Contato: ${contato}`);
+          messageParts.push(`Descrição do serviço: ${serviceDescription}`);
+          messageParts.push(`Data: ${selectedDate}`);
+          messageParts.push(`Horário: ${selectedTime}`);
 
-    // Verifica se uma foto foi anexada
-    const fileInput = document.getElementById('photo');
-    if (fileInput && fileInput.files.length > 0) {
-      const photo = fileInput.files[0]; // A primeira imagem anexada
-      const reader = new FileReader();
+          // Monta a mensagem com quebras de linha
+          const message = messageParts.join('\n');
 
-      reader.onload = function (event) {
-        const photoBase64 = event.target.result; // Codifica a imagem em base64
-        messageParts.push(`Foto:`);
-        messageParts.push(photoBase64); // Inclui a imagem na mensagem
+          // Número de telefone do WhatsApp
+          const phoneNumber = '55081997056165';
 
-        // Monta a mensagem com quebras de linha
-        const message = messageParts.join('\n');
+          // URL de envio do WhatsApp com a mensagem
+          const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
-        // Número de telefone do WhatsApp
-        const phoneNumber = '55081997056165';
+          // Abre a URL no WhatsApp
+          window.open(whatsappUrl, '_blank');
+        });
+      });
 
-        // URL de envio do WhatsApp com a mensagem
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
-        // Abre a URL no WhatsApp
-        window.open(whatsappUrl, '_blank');
-      };
-
-      reader.readAsDataURL(photo); // Lê a imagem como base64
-    } else {
-      // Se nenhuma foto foi anexada, envia a mensagem sem a foto
-      const message = messageParts.join('\n');
-      const phoneNumber = '55081997056165';
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    }
-  });
-});
 
 
 
