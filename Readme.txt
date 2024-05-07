@@ -1,2 +1,1 @@
-Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-
+PWA application proposed by the faculty, developed with template: https://bootstrapmade.com/nova-bootstrap-business-template/. Developed to facilitate the connection between the BarberBoss barbershop and its customers, the application provides information about services (using JSON), information about the barbershop itself and an appointment form, which is sent directly to the barbershop's WhatsApp. 
